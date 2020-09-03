@@ -1,23 +1,11 @@
-/*
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Todolist from './components/todolist';
-
-
-ReactDOM.render(
-  <div>
-    <Todolist/>
-  </div>,
-  document.getElementById('root')
-);
-
-*/
-
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore, combineReducers } from "redux";
+import { createStore } from "redux";
 import { Provider, connect } from "react-redux";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import ContactForm from "./components/ContactForm";
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 //action creator
 const addItem = (name) => {
@@ -76,10 +64,7 @@ class Input extends React.Component {
     this.setState({ name: event.target.value });
   }
   addItem() {
-    if (this.name == "") {
-      return;
-    } 
-    else{
+    if (this.state.name !== "") {
       this.props.onAdd(this.state.name);
       this.setState({ name: "" });
     }
@@ -149,7 +134,18 @@ const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+    <Link to="/">Home</Link>
+    <Link to="/contact">Contact</Link>
+    <Switch>
+          <Route path="/contact">
+            <ContactForm />
+          </Route>
+          <Route path="/">
+            <App />
+          </Route>
+    </Switch>
+    </BrowserRouter>
   </Provider>,
   rootElement
 );
