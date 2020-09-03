@@ -7,3 +7,7 @@ body {
 #root {
   display: flex;
 }
+
+#header {
+  background-color: chartreuse;
+}
