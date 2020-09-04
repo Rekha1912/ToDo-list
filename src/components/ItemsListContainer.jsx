@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import * as actionCreators from '../action/actions';
 import Item from './Item';
+import Filters from './Filters';
 
 
   
@@ -23,30 +24,33 @@ import Item from './Item';
     render() {
       return (
         <div>
-          <input 
-            placeholder= "Add Task !!!"
-            onChange={this.handleChangeName.bind(this)}
-            value={this.state.name}
+          <input className="boxstyle"
+            placeholder= "Add Task !!!" onChange={this.handleChangeName.bind(this)} value={this.state.name}
           />
-          <button onClick={() => this.addItem()}><i class="fas fa-plus"></i></button>
+          <button onClick={() => this.addItem()} className="btn"><i className="fas fa-plus"></i></button>
         </div>
       );
     }
   }
   
   const ItemsList = props => {
+    
     return (
       <div>
+        <date/>
         <Input onAdd={props.onAdd} />
         {props.items.map((item, index) => {
           return (
             <Item
               onDelete={props.onDelete}
+              onEdit={props.onEdit}
               index={index}
               name={item.name}
+              onComplete={props.onComplete}
             />
           );
         })}
+        <Filters items={props.items} onDelete={props.onDelete}/>
       </div>
     );
   };
@@ -64,6 +68,12 @@ import Item from './Item';
       },
       onDelete: id => {
         dispatch(actionCreators.deleteItem(id));
+      },
+      onEdit: (index, value) => {
+        dispatch(actionCreators.editItem(index,value));
+      },
+      onComplete: (index, value) => {
+        dispatch(actionCreators.completeItem(index,value));
       }
     };
   };
