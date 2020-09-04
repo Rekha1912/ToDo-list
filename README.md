@@ -10,7 +10,7 @@ Project description: The ToDo List application is used to note down the task tha
 Project details: The project consists of: 
 HTML page - index.html
 CSS page - index.css
-React page - index
+React page - index.js
 
 Future improvements:
 1. Set a remainder with snooze for the lists will be available, so that you don't miss any task.
