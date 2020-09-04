@@ -11,3 +11,23 @@ body {
 #header {
   background-color: chartreuse;
 }
+
+.container {
+  display: flex;
+}
+.box1 {
+  float: left;
+}
+.box2 {
+  float: right;
+  align-content: right;
+}
+
+.todobox{
+  
+}
+
+.itemDisplay{
+  display: none;
+}
+
