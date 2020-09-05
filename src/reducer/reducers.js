@@ -25,6 +25,13 @@ const reducer = (state = [], action) => {
           },
           ...state.slice(action.index + 1), // everything after current item
        ];
+       case "DELETE_ITEMS":
+          for (var i = action.arr.length -1; i >= 0; i--){
+            state.splice(action.arr[i],1);
+          }
+         return [
+           ...state
+         ];
       default:
         return state;
     }

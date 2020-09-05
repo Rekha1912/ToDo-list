@@ -13,10 +13,10 @@ class Item extends React.Component {
         this.hideedit = this.hideedit.bind(this);
     }
     componentDidUpdate(prevProps){
-        if(prevProps.name !== this.props.name || prevProps.completed !== this.props.completed){
+        if(prevProps.name !== this.props.name){
         this.setState({
-            itemval: this.props.name,
-            checked: this.props.completed
+            itemval: this.props.name//,
+            //checked: this.props.completed
         });
     }
     }
@@ -57,11 +57,13 @@ class Item extends React.Component {
 
     render(){
         return (
+        <div>
         <div class="editbox">
-            <input type="checkbox" onClick={this.completeItem} checked={this.state.checked}></input>
-                <div id={'itemtext'+ this.props.index} onDoubleClick={this.showedit} title="Double click to Edit!" className="itemadd">{this.state.itemval}</div>
+            <input type="checkbox" onClick={this.completeItem} className="chkboxcls"></input>
+            <div id={'itemtext'+ this.props.index} onDoubleClick={this.showedit} title="Double click to Edit!" className="itemadd">{this.state.itemval}</div>
             <input id={'itemval'+ this.props.index} className="itemdisplay" type="text" onBlur={this.hideedit} onChange= {this.editItem} value={this.state.itemval} />
-            <button onClick={this.deleteItem} className="btn"><i class="fas fa-trash-alt"></i></button>
+            <button onClick={this.deleteItem} className="btn"><i class="fas fa-minus-circle"></i></button>
+        </div>
         </div>
         );
     }

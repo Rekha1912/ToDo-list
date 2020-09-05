@@ -32,3 +32,9 @@ export const deleteItem = index => {
     };
   };
 
+  export const deleteItems = index => {
+    return {
+      type: "DELETE_ITEMS",
+      arr: index
+    };
+  };
