@@ -42,19 +42,20 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>Contact Form</h1>
-        <p>Enter your Name:</p>
-        <input type="text" name="username" onChange={this.handleNameChange} />
-        <p>Enter your Phone Number:</p>
-        <input type="number" name="tele" onChange={this.handleNumberChange} />
-        <p> Enter your Email ID: </p>
-        <input type="email" name="email" onChange={this.handleEmailChange} />
-        <p> Enter your Address: </p>
-        <textarea name="address" onChange={this.handleAddressChange} />
+      <form onSubmit={this.handleSubmit} className="formbox">
         <br />
-        <button type="submit"> Submit </button>
-        <button type="reset"> Reset </button>
+        <h2>Contact Form</h2> <br />
+        <p>Full Name:</p>
+        <input type="text" name="username" onChange={this.handleNameChange} /> <br /><br />
+        <p>Phone Number:</p>
+        <input type="number" name="tele" onChange={this.handleNumberChange} /> <br /><br />
+        <p>Email ID: </p>
+        <input type="email" name="email" onChange={this.handleEmailChange} /> <br /><br />
+        <p>Address: </p>
+        <textarea name="address" onChange={this.handleAddressChange} />
+        <br /> <br />
+        <button type="submit" className="btn"> Submit </button>
+        <button type="reset" className="btn"> Reset </button>
       </form>
     );
   }
