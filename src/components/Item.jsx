@@ -28,6 +28,8 @@ class Item extends React.Component {
         }
     }
 
+    //edit task method
+
     editItem(evt){
         const val = evt.target.value;
         this.setState({

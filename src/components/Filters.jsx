@@ -5,16 +5,14 @@ class Filters extends React.Component {
     constructor(props){
         super(props);
         this.deleteAllActive = this.deleteAllActive.bind(this);
-        this.selectAll = this.selectAll.bind(this);
-        this.selectActive = this.selectActive.bind(this);
-        this.selectCompleted = this.selectCompleted.bind(this);
+        this.parentFilterCompleted = this.parentFilterCompleted.bind(this);
+        this.parentFilterActive = this.parentFilterActive.bind(this);
+        this.parentFilterAll = this.parentFilterAll.bind(this);
     }
 
+    // Delete completed tasks
+
     deleteAllActive(){
-        var getchkboxes = document.getElementsByClassName("chkboxcls");
-        for (var i = 0; i < getchkboxes.length; i++) {
-            getchkboxes[i].checked = false;
-        };
         var itemarr = this.props.items;
         var activeIndexs = [];
         for (var j = 0; j < itemarr.length; j++) {
@@ -25,39 +23,30 @@ class Filters extends React.Component {
         this.props.onDeleteAll(activeIndexs);
     }
 
-    selectAll(){
-        var getItems = document.getElementsByClassName("editbox");
-        for (var i = 0; i < getItems.length; i++) {
-            getItems[i].style.display = "block";
-        }
+    //Display all completed tasks 
+    
+    parentFilterCompleted(){
+        this.props.filterUpdate("completed");
     }
 
-    selectActive(){
-        this.selectAll();
-        var getItems = document.getElementsByClassName("editbox");
-        for (var i = 0; i < getItems.length; i++) {
-            if(getItems[i].firstChild.firstChild.checked){
-                getItems[i].style.display = "none";
-            }
-        }
+    //Display only active tasks
+
+    parentFilterActive(){
+        this.props.filterUpdate("active");
     }
 
-    selectCompleted(){
-        this.selectAll();
-        var getItems = document.getElementsByClassName("editbox");
-        for (var i = 0; i < getItems.length; i++) {
-            if(!getItems[i].firstChild.firstChild.checked){
-                getItems[i].style.display = "none";
-            }
-        }
+    //Display all tasks
+
+    parentFilterAll(){
+        this.props.filterUpdate("all");
     }
 
     render(){
         return (
         <div className="filterbox">
-            <button onClick={this.selectAll} className="btn">All</button>
-            <button onClick={this.selectActive} className="btn">Active</button>
-            <button onClick={this.selectCompleted} className="btn">Completed</button>
+            <button onClick={this.parentFilterAll} className="btn">All</button>
+            <button onClick={this.parentFilterActive} className="btn">Active</button>
+            <button onClick={this.parentFilterCompleted} className="btn">Completed</button>
             <button onClick={this.deleteAllActive} className="btn">Delete completed</button>
         </div>
         );

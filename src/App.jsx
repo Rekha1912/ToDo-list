@@ -1,16 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Switch, Route, NavLink, Redirect } from "react-router-dom";
 import ContactForm from "./components/ContactForm";
-import ItemsListContainer from './components/ItemsListContainer';
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
+import ItemsListContainer from "./container/ItemsListContainer";
+import "bootstrap/dist/css/bootstrap.css";
+import "./index.css";
 import CurrentDate from "./components/CurrentDate";
-import reducer from './reducer/reducers';
+import reducer from "./reducer/reducers";
+import Error from "./components/Error";
+
 
 //store
+
 var store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
@@ -30,18 +32,20 @@ const App = () => {
       <Provider store={store}>
       <BrowserRouter>
         <div class="nav">
-          <NavLink className="nav1" to="/" >|| HOME |</NavLink> 
+          <NavLink className="nav1" to="/home" >|| HOME |</NavLink> 
           <NavLink className="nav1" to="/contact">| CONTACT PAGE ||</NavLink>
         </div>
       <Switch>
+            <Redirect exact path="/" to="/home" />
             <Route path="/contact">
               <ContactForm />
             </Route>
-            <Route path="/">
+            <Route path="/home">
             <div class="todobox">
               <ItemsListContainer />
             </div>
             </Route>
+            <Route component={Error} />
       </Switch>
       </BrowserRouter>
     </Provider>

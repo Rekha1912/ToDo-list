@@ -18,7 +18,7 @@ class ContactForm extends React.Component {
   }
 
   handleNameChange(event) {
-    this.setState({ name: event.target.value });
+    this.setState({ username: event.target.value });
   }
 
   handleNumberChange(event) {

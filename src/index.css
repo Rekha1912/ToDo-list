@@ -1,6 +1,6 @@
 body {
   padding: 10px;
-  background-color:#f0fff5;
+  background-color:#fbffc2;
   font-family:'Belgrano',sans-serif;
 }
 
@@ -40,8 +40,9 @@ body {
 .nav1 {
   color: black;
 }
+
 .todobox {
-  background-color: #84ffc9;
+  background-color: #adb5bd;
   clear: both;
   padding: 20px;
   padding-left:23.5%;
@@ -74,14 +75,14 @@ body {
 
 .itemadd {
   padding: 10px;
-  font-size: x-large;
+  font-size: larger;
   font-weight: bolder;
   justify-content: left;
 }
 
 .checkeditem {
   padding: 10px;
-  font-size: x-large;
+  font-size: larger;
   color: blue;
   text-decoration: line-through;
 }
@@ -118,3 +119,8 @@ body {
   border: 3px solid black;
 }
 
+.errorcolor {
+  color: red;
+  font-weight: bolder;
+  
+}
