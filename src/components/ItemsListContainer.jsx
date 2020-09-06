@@ -4,14 +4,12 @@ import { connect } from "react-redux";
 import * as actionCreators from '../action/actions';
 import Item from './Item';
 import Filters from './Filters';
-
-
   
   class Input extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { name: ""};
-      this.addItemWithkey = this.addItemWithkey.bind(this);
+        this.state = { name: ""};
+        this.addItemWithkey = this.addItemWithkey.bind(this);
     }
     handleChangeName(event) {
       this.setState({ name: event.target.value });
@@ -51,6 +49,7 @@ import Filters from './Filters';
       <div>
         <date/>
         <Input onAdd={props.onAdd} />
+        <table>
         {props.items.map((item, index) => {
           return (
             <Item
@@ -58,10 +57,13 @@ import Filters from './Filters';
               onEdit={props.onEdit}
               index={index}
               name={item.name}
+              completed={item.completed}
               onComplete={props.onComplete}
+              items={props.items}
             />
           );
         })}
+        </table>
         <Filters items={props.items} onDeleteAll={props.onDeleteAll}/>
       </div>
     );

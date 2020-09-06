@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 
 class CurrentDate extends Component {
   constructor(props){
     super(props);
 
       var today = new Date();
+        
         var weekday = new Array(7);
           weekday[0] = "Sunday";
           weekday[1] = "Monday";

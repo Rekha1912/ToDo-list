@@ -1,5 +1,4 @@
 import React from "react";
-//import ReactDOM from "react-dom";
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -37,7 +36,6 @@ class ContactForm extends React.Component {
   handleSubmit() {
     this.setState({ username: "", tele: null, email: "", address: ""});
     alert('Form is submitted');
-    //evt.preventDefault();
   }
 
   render() {
@@ -53,9 +51,9 @@ class ContactForm extends React.Component {
         <input type="email" name="email" onChange={this.handleEmailChange} /> <br /><br />
         <p>Address: </p>
         <textarea name="address" onChange={this.handleAddressChange} />
-        <br /> <br />
-        <button type="submit" className="btn"> Submit </button>
-        <button type="reset" className="btn"> Reset </button>
+        <br /> 
+        <button type="submit" className="btn"> SUBMIT </button>
+        <button type="reset" className="btn"> RESET </button>
       </form>
     );
   }

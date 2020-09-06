@@ -11,23 +11,21 @@ class Filters extends React.Component {
     }
 
     deleteAllActive(){
-        //alert(this.props.index);
         var getchkboxes = document.getElementsByClassName("chkboxcls");
         for (var i = 0; i < getchkboxes.length; i++) {
             getchkboxes[i].checked = false;
         };
         var itemarr = this.props.items;
         var activeIndexs = [];
-        for (var i = 0; i < itemarr.length; i++) {
-           if(itemarr[i].completed == true){  
-            activeIndexs.push(i);
+        for (var j = 0; j < itemarr.length; j++) {
+           if(itemarr[j].completed === true){  
+            activeIndexs.push(j);
            }
         };
         this.props.onDeleteAll(activeIndexs);
     }
 
     selectAll(){
-        //alert(this.props.index);
         var getItems = document.getElementsByClassName("editbox");
         for (var i = 0; i < getItems.length; i++) {
             getItems[i].style.display = "block";
@@ -35,22 +33,20 @@ class Filters extends React.Component {
     }
 
     selectActive(){
-        //alert(this.props.index);
         this.selectAll();
         var getItems = document.getElementsByClassName("editbox");
         for (var i = 0; i < getItems.length; i++) {
-            if(getItems[i].firstChild.checked){
+            if(getItems[i].firstChild.firstChild.checked){
                 getItems[i].style.display = "none";
             }
         }
     }
 
     selectCompleted(){
-        //alert(this.props.index);
         this.selectAll();
         var getItems = document.getElementsByClassName("editbox");
         for (var i = 0; i < getItems.length; i++) {
-            if(!getItems[i].firstChild.checked){
+            if(!getItems[i].firstChild.firstChild.checked){
                 getItems[i].style.display = "none";
             }
         }

@@ -8,28 +8,30 @@ import ItemsListContainer from './components/ItemsListContainer';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import CurrentDate from "./components/CurrentDate";
-
 import reducer from './reducer/reducers';
 
 //store
-var store = createStore(reducer);
+var store = createStore(reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
 const App = () => {
   return (
     <div className="container">
       <div id="header">
         <div class="box1">
-          <h1> <i class="fas fa-tasks"> ToDo List </i></h1>
+          <h1> <i class="fas fa-tasks"></i>  ToDo LIST </h1>
         </div>
         <div class="box2">
-        <h1><CurrentDate/></h1>
+          <h2><CurrentDate/></h2>
         </div>
       </div>
+      
       <Provider store={store}>
       <BrowserRouter>
         <div class="nav">
-          <NavLink to="/">| HOME |</NavLink>
-          <NavLink to="/contact">| CONTACT PAGE |</NavLink>
+          <NavLink className="nav1" to="/" >|| HOME |</NavLink> 
+          <NavLink className="nav1" to="/contact">| CONTACT PAGE ||</NavLink>
         </div>
       <Switch>
             <Route path="/contact">
