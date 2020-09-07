@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import * as actionCreators from '../action/actions';
 import Input from '../components/Input';
@@ -10,6 +9,7 @@ import Filters from '../components/Filters';
 
     constructor(props){
       super(props);
+      
       this.state = {
         items: this.props.items
       }
@@ -61,7 +61,7 @@ import Filters from '../components/Filters';
       <div>
         <date/>
         <Input onAdd={this.props.onAdd} />
-        <table>
+        <table className="tablestyle">
         {this.state.items.map((item, index) => {
           return (
             <Item

@@ -52,8 +52,8 @@ class ContactForm extends React.Component {
         <p>Address: </p>
         <textarea name="address" onChange={this.handleAddressChange} />
         <br /> 
-        <button type="submit" className="btn"> SUBMIT </button>
-        <button type="reset" className="btn"> RESET </button>
+        <button type="submit" className="btn cbtn"> SUBMIT </button>
+        <button type="reset" className="btn cbtn"> RESET </button>
       </form>
     );
   }
