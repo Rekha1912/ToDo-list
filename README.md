@@ -31,5 +31,7 @@ Installation and Setup Instructions for the project.
 5. To Visit App:
     localhost:3000/home
 
+Firebase deployed URL - https://todolist-1a388.web.app
+
 
 
